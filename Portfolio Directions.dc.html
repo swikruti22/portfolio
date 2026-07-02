@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Archivo:wght@400;500;700;900&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=DM+Sans:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+* { box-sizing: border-box; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+</style>
+</helmet>
+
+<!-- ===================== DIRECTION 1: ELECTRIC ===================== -->
+<div style="position:absolute; left:0px; top:0px; width:1280px;">
+  <div data-drags-parent="1" style="font:600 13px 'Space Grotesk',sans-serif; letter-spacing:.12em; text-transform:uppercase; color:#5b5b5b; margin-bottom:14px; cursor:grab;">01 · Electric</div>
+  <div data-screen-label="Electric Home" style="background:#0a0a0a; border-radius:4px; overflow:hidden; box-shadow:0 1px 3px rgba(0,0,0,.12); font-family:'Space Grotesk',sans-serif; color:#fff;">
+
+    <div style="display:flex; justify-content:space-between; align-items:center; padding:28px 44px; border-bottom:1px solid #1d1d1d;">
+      <div style="font-weight:700; font-size:18px; letter-spacing:-.01em;">SN<span style="color:#d8ff3e;">.</span></div>
+      <div style="display:flex; gap:36px; font-size:14px; color:#9a9a9a; font-weight:500;">
+        <span>Work</span><span>About</span><span>Contact</span>
+      </div>
+    </div>
+
+    <div style="padding:90px 44px 70px;">
+      <div style="font-size:14px; letter-spacing:.14em; text-transform:uppercase; color:#d8ff3e; font-weight:600; margin-bottom:30px;">Product Designer · Available for work</div>
+      <h1 style="font-family:'Archivo',sans-serif; font-weight:900; font-size:118px; line-height:.92; letter-spacing:-.03em; margin:0; text-transform:uppercase;">Swikruti<br>Nayak</h1>
+      <p style="max-width:620px; font-size:21px; line-height:1.5; color:#c4c4c4; margin:38px 0 0; font-weight:400;">I design clear, human-centered products — from messy problem to shipped interface. Currently focused on conversation design and 0→1 product work.</p>
+      <div style="display:flex; gap:16px; margin-top:44px;">
+        <div style="background:#d8ff3e; color:#0a0a0a; font-weight:700; font-size:15px; padding:16px 30px; border-radius:100px;">View selected work →</div>
+        <div style="border:1px solid #333; color:#fff; font-weight:600; font-size:15px; padding:16px 30px; border-radius:100px;">Get in touch</div>
+      </div>
+    </div>
+
+    <div style="overflow:hidden; border-top:1px solid #1d1d1d; border-bottom:1px solid #1d1d1d; padding:18px 0;">
+      <div style="display:flex; gap:40px; width:max-content; animation:marquee 18s linear infinite; font-family:'Archivo',sans-serif; font-weight:900; font-size:26px; text-transform:uppercase; color:#1f1f1f; -webkit-text-stroke:1px #3a3a3a; white-space:nowrap;">
+        <span>Product Design</span><span style="color:#d8ff3e;-webkit-text-stroke:0;">✦</span><span>UX Strategy</span><span style="color:#d8ff3e;-webkit-text-stroke:0;">✦</span><span>Prototyping</span><span style="color:#d8ff3e;-webkit-text-stroke:0;">✦</span><span>Conversation Design</span><span style="color:#d8ff3e;-webkit-text-stroke:0;">✦</span><span>Product Design</span><span style="color:#d8ff3e;-webkit-text-stroke:0;">✦</span><span>UX Strategy</span><span style="color:#d8ff3e;-webkit-text-stroke:0;">✦</span><span>Prototyping</span><span style="color:#d8ff3e;-webkit-text-stroke:0;">✦</span><span>Conversation Design</span><span style="color:#d8ff3e;-webkit-text-stroke:0;">✦</span>
+      </div>
+    </div>
+
+    <div style="padding:80px 44px;">
+      <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:40px;">
+        <h2 style="font-family:'Archivo',sans-serif; font-weight:900; font-size:44px; margin:0; letter-spacing:-.02em;">Selected Work</h2>
+        <span style="color:#777; font-size:14px;">2022 — 2025</span>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:22px;">
+        <sc-for list="{{ projects }}" as="p" hint-placeholder-count="3">
+          <div style="display:grid; grid-template-columns:1.1fr 1fr; gap:30px; align-items:center; background:#121212; border:1px solid #1f1f1f; border-radius:18px; padding:26px; overflow:hidden;">
+            <div>
+              <div style="font-size:13px; color:#d8ff3e; font-weight:600; letter-spacing:.08em; text-transform:uppercase; margin-bottom:14px;">{{ p.tag }}</div>
+              <h3 style="font-family:'Archivo',sans-serif; font-weight:700; font-size:30px; margin:0 0 12px; line-height:1.05;">{{ p.title }}</h3>
+              <p style="color:#aaa; font-size:15px; line-height:1.5; margin:0 0 18px;">{{ p.desc }}</p>
+              <span style="font-size:14px; color:#fff; font-weight:600; border-bottom:2px solid #d8ff3e; padding-bottom:3px;">Read case study →</span>
+            </div>
+            <image-slot id="elec-{{ p.id }}" style="width:100%; height:230px; display:block;" shape="rounded" radius="14" placeholder="Project image"></image-slot>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+
+    <div style="padding:70px 44px 90px; border-top:1px solid #1d1d1d; display:flex; justify-content:space-between; align-items:flex-end;">
+      <div>
+        <div style="font-size:14px; color:#888; margin-bottom:14px;">Let's build something</div>
+        <a style="font-family:'Archivo',sans-serif; font-weight:900; font-size:54px; color:#d8ff3e; text-decoration:none; letter-spacing:-.02em;">swikrutinayak22@gmail.com</a>
+      </div>
+      <div style="display:flex; gap:24px; color:#999; font-size:14px; font-weight:500;"><span>LinkedIn</span><span>Dribbble</span><span>Resume</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== DIRECTION 2: EDITORIAL SUN ===================== -->
+<div style="position:absolute; left:1440px; top:0px; width:1280px;">
+  <div data-drags-parent="1" style="font:600 13px 'Space Grotesk',sans-serif; letter-spacing:.12em; text-transform:uppercase; color:#5b5b5b; margin-bottom:14px; cursor:grab;">02 · Editorial Sun</div>
+  <div data-screen-label="Editorial Home" style="background:#f4ede2; border-radius:4px; overflow:hidden; box-shadow:0 1px 3px rgba(0,0,0,.12); font-family:'DM Sans',sans-serif; color:#241c14;">
+
+    <div style="display:flex; justify-content:space-between; align-items:center; padding:30px 50px;">
+      <div style="font-family:'Fraunces',serif; font-weight:900; font-size:22px;">Swikruti Nayak</div>
+      <div style="display:flex; gap:34px; font-size:15px; color:#6b5d4d; font-weight:500;">
+        <span>Work</span><span>About</span><span>Contact</span>
+      </div>
+    </div>
+
+    <div style="padding:60px 50px 50px; text-align:center;">
+      <div style="font-size:13px; letter-spacing:.16em; text-transform:uppercase; color:#c2410c; font-weight:700; margin-bottom:28px;">Product Designer — India</div>
+      <h1 style="font-family:'Fraunces',serif; font-weight:400; font-size:96px; line-height:1.0; letter-spacing:-.02em; margin:0; max-width:1000px; margin-inline:auto;">Designing products that feel <span style="font-style:italic; color:#c2410c;">effortless</span> to use.</h1>
+      <p style="max-width:560px; margin:34px auto 0; font-size:19px; line-height:1.55; color:#5a4d3e;">I'm a product designer turning complex flows into calm, intuitive experiences. Ten years of craft across fintech, health, and conversational AI.</p>
+    </div>
+
+    <image-slot id="sun-hero" style="width:calc(100% - 100px); height:380px; margin:20px 50px 0; display:block;" shape="rounded" radius="22" placeholder="Drop a hero/banner image"></image-slot>
+
+    <div style="padding:90px 50px;">
+      <h2 style="font-family:'Fraunces',serif; font-weight:600; font-size:38px; margin:0 0 44px; letter-spacing:-.01em;">Selected projects</h2>
+      <div style="display:flex; flex-direction:column; gap:0;">
+        <sc-for list="{{ projects }}" as="p" hint-placeholder-count="3">
+          <div style="display:grid; grid-template-columns:60px 1fr 1.1fr; gap:34px; align-items:center; padding:34px 0; border-top:1px solid #ddd2c2;">
+            <div style="font-family:'Fraunces',serif; font-size:22px; color:#b3a695;">0{{ p.num }}</div>
+            <div>
+              <h3 style="font-family:'Fraunces',serif; font-weight:600; font-size:32px; margin:0 0 10px;">{{ p.title }}</h3>
+              <div style="font-size:13px; color:#c2410c; font-weight:700; letter-spacing:.06em; text-transform:uppercase; margin-bottom:12px;">{{ p.tag }}</div>
+              <p style="color:#6a5d4e; font-size:15px; line-height:1.55; margin:0;">{{ p.desc }}</p>
+            </div>
+            <image-slot id="sun-{{ p.id }}" style="width:100%; height:210px; display:block;" shape="rounded" radius="16" placeholder="Project image"></image-slot>
+          </div>
+        </sc-for>
+        <div style="border-top:1px solid #ddd2c2;"></div>
+      </div>
+    </div>
+
+    <div style="background:#241c14; color:#f4ede2; padding:80px 50px; text-align:center;">
+      <div style="font-family:'Fraunces',serif; font-style:italic; font-size:20px; color:#e8a87c; margin-bottom:18px;">Currently open to new work</div>
+      <a style="font-family:'Fraunces',serif; font-weight:600; font-size:46px; color:#f4ede2; text-decoration:none;">swikrutinayak22@gmail.com</a>
+      <div style="display:flex; gap:26px; justify-content:center; margin-top:30px; color:#b3a695; font-size:15px;"><span>LinkedIn</span><span>Dribbble</span><span>Resume ↗</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== DIRECTION 3: COBALT GRID ===================== -->
+<div style="position:absolute; left:2880px; top:0px; width:1280px;">
+  <div data-drags-parent="1" style="font:600 13px 'Space Grotesk',sans-serif; letter-spacing:.12em; text-transform:uppercase; color:#5b5b5b; margin-bottom:14px; cursor:grab;">03 · Cobalt Grid</div>
+  <div data-screen-label="Cobalt Home" style="background:#fff; border-radius:4px; overflow:hidden; box-shadow:0 1px 3px rgba(0,0,0,.12); font-family:'Space Grotesk',sans-serif; color:#0e1116;">
+
+    <div style="display:flex; justify-content:space-between; align-items:center; padding:26px 46px; border-bottom:1px solid #ededed;">
+      <div style="font-weight:700; font-size:17px;">Swikruti Nayak</div>
+      <div style="display:flex; gap:8px; align-items:center; font-size:14px;">
+        <span style="color:#666; margin-right:24px;">Work</span><span style="color:#666; margin-right:24px;">About</span>
+        <span style="background:#1d4ed8; color:#fff; font-weight:600; padding:10px 20px; border-radius:8px;">Contact</span>
+      </div>
+    </div>
+
+    <div style="padding:80px 46px 60px;">
+      <div style="display:inline-flex; align-items:center; gap:8px; background:#eff3ff; color:#1d4ed8; font-size:13px; font-weight:600; padding:8px 16px; border-radius:100px; margin-bottom:30px;"><span style="width:7px;height:7px;border-radius:50%;background:#22c55e;display:inline-block;"></span>Available for select projects</div>
+      <h1 style="font-weight:700; font-size:88px; line-height:1.02; letter-spacing:-.035em; margin:0; max-width:980px;">Product designer crafting <span style="color:#1d4ed8;">bold, usable</span> digital products.</h1>
+      <div style="display:flex; gap:60px; margin-top:46px; flex-wrap:wrap;">
+        <p style="max-width:480px; font-size:18px; line-height:1.55; color:#4a525e; margin:0;">I help teams ship products people love — leading design from research and strategy through polished, shipped UI.</p>
+        <div style="display:flex; gap:48px;">
+          <div><div style="font-size:34px; font-weight:700; letter-spacing:-.02em;">10+</div><div style="font-size:13px; color:#7a828e; margin-top:4px;">Years exp.</div></div>
+          <div><div style="font-size:34px; font-weight:700; letter-spacing:-.02em;">40+</div><div style="font-size:13px; color:#7a828e; margin-top:4px;">Products shipped</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="padding:50px 46px 90px;">
+      <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:30px;">
+        <h2 style="font-weight:700; font-size:30px; margin:0; letter-spacing:-.02em;">Featured work</h2>
+        <span style="color:#1d4ed8; font-size:14px; font-weight:600;">View all →</span>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:22px;">
+        <sc-for list="{{ projects }}" as="p" hint-placeholder-count="3">
+          <div style="background:#f7f8fa; border:1px solid #eee; border-radius:18px; overflow:hidden; grid-column:{{ p.span }};">
+            <image-slot id="cob-{{ p.id }}" style="width:100%; height:240px; display:block;" shape="rect" placeholder="Project image"></image-slot>
+            <div style="padding:24px 26px 28px;">
+              <div style="font-size:12px; color:#1d4ed8; font-weight:600; letter-spacing:.06em; text-transform:uppercase; margin-bottom:10px;">{{ p.tag }}</div>
+              <h3 style="font-weight:700; font-size:23px; margin:0 0 8px; letter-spacing:-.01em;">{{ p.title }}</h3>
+              <p style="color:#5a626e; font-size:14px; line-height:1.5; margin:0;">{{ p.desc }}</p>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+
+    <div style="background:#1d4ed8; color:#fff; padding:74px 46px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:24px;">
+      <div>
+        <h2 style="font-weight:700; font-size:40px; margin:0 0 10px; letter-spacing:-.02em;">Let's work together.</h2>
+        <p style="margin:0; color:#c5d3ff; font-size:17px;">Have a project in mind? I'd love to hear about it.</p>
+      </div>
+      <div style="background:#fff; color:#1d4ed8; font-weight:700; font-size:16px; padding:18px 34px; border-radius:10px;">swikrutinayak22@gmail.com</div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const projects = [
+      { id: 'a', num: 1, span: 'span 2', tag: 'Conversation Design', title: 'Banking assistant that actually helps', desc: 'Reimagined a retail bank\'s chatbot into a goal-driven assistant — cutting support tickets 32% and lifting CSAT to 4.6.' },
+      { id: 'b', num: 2, span: 'span 1', tag: 'Fintech · 0→1', title: 'Onboarding in under 90 seconds', desc: 'Designed and shipped a frictionless KYC flow that doubled activation for a new investing app.' },
+      { id: 'c', num: 3, span: 'span 1', tag: 'Health · Mobile', title: 'Care plans people stick to', desc: 'A patient companion app that made daily adherence feel effortless and rewarding.' },
+    ];
+    return { projects };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<script src="./image-slot.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Archivo:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+* { box-sizing:border-box; }
+html, body { margin:0; background:#0a0a0a; }
+a { text-decoration:none; color:inherit; }
+.lk { transition:color .2s; }
+.lk:hover { color:#d8ff3e; }
+.cta-mail:hover { color:#eaffa0; }
+.persona-card { transition:transform .25s, border-color .25s; }
+.persona-card:hover { transform:translateY(-4px); }
+.prin-btn { transition:background .2s, border-color .2s; cursor:pointer; user-select:none; }
+.prin-btn:hover { background:#161616; border-color:#d8ff3e; }
+.dot { transition:background .2s, width .2s; }
+</style>
+</helmet>
+
+<div style="font-family:'Space Grotesk',sans-serif; background:#0a0a0a; color:#fff; min-height:100vh;">
+
+  <!-- NAV -->
+  <div style="position:sticky; top:0; z-index:50; display:flex; justify-content:space-between; align-items:center; padding:22px 6vw; border-bottom:1px solid #1d1d1d; background:rgba(10,10,10,.85); backdrop-filter:blur(12px);">
+    <a href="Home.dc.html" style="font-weight:700; font-size:19px; letter-spacing:-.01em;">SN<span style="color:#d8ff3e;">.</span></a>
+    <div style="display:flex; gap:38px; font-size:14px; color:#9a9a9a; font-weight:500;">
+      <a class="lk" href="Home.dc.html#work">Work</a>
+      <a class="lk" href="About.dc.html">About</a>
+      <a class="lk" href="Contact.dc.html">Contact</a>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <div style="padding:80px 6vw 50px; max-width:1120px; margin:0 auto;">
+    <a class="lk" href="Home.dc.html#work" style="font-size:14px; color:#888;">← Back to work</a>
+    <div style="display:flex; flex-wrap:wrap; gap:8px; margin:34px 0 26px;">
+      <sc-for list="{{ tags }}" as="t" hint-placeholder-count="4">
+        <span style="font-size:12px; color:#d8ff3e; font-weight:600; letter-spacing:.04em; border:1px solid #2f3a14; background:#171c08; padding:7px 14px; border-radius:100px;">{{ t }}</span>
+      </sc-for>
+    </div>
+    <h1 style="font-family:'Archivo',sans-serif; font-weight:900; font-size:clamp(40px,7vw,84px); line-height:.95; letter-spacing:-.03em; margin:0;">AI Support for US Health Insurance</h1>
+    <p style="max-width:760px; font-size:clamp(18px,2.4vw,23px); line-height:1.5; color:#c4c4c4; margin:30px 0 0;">Designing a smart AI conversational agent that reduces friction in activity reporting while encouraging healthier behaviour among senior members.</p>
+  </div>
+
+  <!-- META -->
+  <div style="max-width:1120px; margin:0 auto; padding:0 6vw 60px;">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; background:#121212; border:1px solid #1f1f1f; border-radius:18px; padding:34px 40px;">
+      <div>
+        <div style="font-size:12px; color:#d8ff3e; text-transform:uppercase; letter-spacing:.1em; margin-bottom:10px;">Role</div>
+        <div style="font-size:18px; color:#fff; font-weight:500;">Senior Conversation Designer</div>
+      </div>
+      <div>
+        <div style="font-size:12px; color:#d8ff3e; text-transform:uppercase; letter-spacing:.1em; margin-bottom:10px;">Duration</div>
+        <div style="font-size:18px; color:#fff; font-weight:500;">1 month</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BACKGROUND + GOAL -->
+  <div style="max-width:820px; margin:0 auto; padding:20px 6vw 30px;">
+    <div style="font-size:13px; color:#d8ff3e; font-weight:600; letter-spacing:.08em; text-transform:uppercase; margin-bottom:18px;">Background</div>
+    <p style="font-size:18px; line-height:1.75; color:#bdbdbd; margin:0 0 60px;">Health insurance providers increasingly offer wellness-based rewards to encourage members to stay active. Yet reporting these activities often becomes a point of friction — especially for senior users who may find digital systems confusing. At the same time, businesses aim to reduce support costs by shifting these interactions to AI. But in sensitive domains like healthcare, overly rigid or transactional bots can break trust, leading to more escalations rather than fewer. This project focuses on a conversational AI experience that lets members self-report activity in a simple, trustworthy way while encouraging healthy behaviour.</p>
+
+    <div style="display:flex; align-items:center; gap:14px; margin-bottom:18px;">
+      <span style="width:34px; height:34px; border-radius:50%; background:#171c08; border:1px solid #2f3a14; display:flex; align-items:center; justify-content:center; color:#d8ff3e; font-size:18px;">◎</span>
+      <h2 style="font-family:'Archivo',sans-serif; font-weight:700; font-size:28px; margin:0; letter-spacing:-.01em;">Goal</h2>
+    </div>
+    <p style="font-size:18px; line-height:1.75; color:#bdbdbd; margin:0;">Design a low-friction, trust-based reporting experience that enables members to easily self-report activity completion, encourages continued participation in healthy behaviours, and reduces unnecessary human intervention.</p>
+  </div>
+
+  <!-- MY ROLE -->
+  <div style="max-width:1120px; margin:0 auto; padding:80px 6vw;">
+    <div style="display:flex; align-items:center; gap:14px; margin-bottom:12px;">
+      <span style="width:34px; height:34px; border-radius:50%; background:#171c08; border:1px solid #2f3a14; display:flex; align-items:center; justify-content:center; color:#d8ff3e; font-size:16px;">◍</span>
+      <h2 style="font-family:'Archivo',sans-serif; font-weight:900; font-size:clamp(28px,4vw,40px); margin:0; letter-spacing:-.02em;">My Role</h2>
+    </div>
+    <p style="font-size:17px; line-height:1.6; color:#aaa; margin:0 0 40px; max-width:640px;">This project required a combination of technical understanding, strategic thinking, and hands-on design. Here's what I contributed:</p>
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:18px;">
+      <sc-for list="{{ roles }}" as="r" hint-placeholder-count="6">
+        <div style="background:#121212; border:1px solid #1f1f1f; border-radius:16px; padding:26px 24px; display:flex; align-items:center; gap:16px;">
+          <span style="width:44px; height:44px; flex:none; border-radius:12px; background:#171c08; display:flex; align-items:center; justify-content:center; color:#d8ff3e; font-size:20px;">{{ r.icon }}</span>
+          <span style="font-size:16px; font-weight:600; color:#eee; line-height:1.25;">{{ r.name }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- STRATEGY: PERSONAS -->
+  <div style="max-width:1120px; margin:0 auto; padding:40px 6vw 0;">
+    <div style="display:flex; align-items:center; gap:14px; margin-bottom:8px;">
+      <span style="width:34px; height:34px; border-radius:50%; background:#171c08; border:1px solid #2f3a14; display:flex; align-items:center; justify-content:center; color:#d8ff3e; font-size:16px;">✷</span>
+      <h2 style="font-family:'Archivo',sans-serif; font-weight:900; font-size:clamp(28px,4vw,40px); margin:0; letter-spacing:-.02em;">Conversation Design Strategy</h2>
+    </div>
+    <h3 style="font-size:20px; font-weight:600; margin:40px 0 8px; color:#fff;">Personas</h3>
+    <p style="font-size:16px; color:#aaa; margin:0 0 30px;">Personas are based on patterns observed in user interactions and support conversations.</p>
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px;">
+      <sc-for list="{{ personas }}" as="p" hint-placeholder-count="3">
+        <div class="persona-card" style="background:#121212; border:1px solid #1f1f1f; border-radius:18px; padding:28px; border-top:3px solid {{ p.color }};">
+          <div style="display:flex; align-items:center; gap:14px; margin-bottom:22px;">
+            <span style="width:46px; height:46px; border-radius:50%; background:{{ p.color }}; display:flex; align-items:center; justify-content:center; color:#0a0a0a; font-weight:700; font-size:17px;">{{ p.initial }}</span>
+            <div>
+              <div style="font-family:'Archivo',sans-serif; font-weight:700; font-size:19px;">{{ p.name }}</div>
+              <div style="font-size:13px; color:#999;">{{ p.role }}</div>
+            </div>
+          </div>
+          <div style="font-size:11px; color:#777; letter-spacing:.1em; text-transform:uppercase; margin-bottom:14px;">Behaviours</div>
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            <sc-for list="{{ p.behaviours }}" as="b" hint-placeholder-count="4">
+              <div style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:#c4c4c4;">
+                <span style="color:{{ p.color }}; flex:none; margin-top:2px;">●</span><span>{{ b }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- BEHAVIOURAL PRINCIPLES -->
+  <div style="max-width:1120px; margin:0 auto; padding:70px 6vw 0;">
+    <h3 style="font-size:20px; font-weight:600; margin:0 0 24px; color:#fff;">Behavioural Principles</h3>
+    <div style="display:flex; align-items:stretch; gap:18px;">
+      <div class="prin-btn" onClick="{{ prev }}" style="flex:none; width:56px; border:1px solid #1f1f1f; border-radius:16px; display:flex; align-items:center; justify-content:center; font-size:22px; color:#888;">‹</div>
+      <div style="flex:1; background:linear-gradient(135deg,#131611,#0f0f0f); border:1px solid #1f1f1f; border-radius:22px; padding:70px 40px; text-align:center;">
+        <div style="width:64px; height:64px; margin:0 auto 26px; border-radius:50%; background:#171c08; display:flex; align-items:center; justify-content:center; color:#d8ff3e; font-size:28px;">{{ activePrinciple.icon }}</div>
+        <h4 style="font-family:'Archivo',sans-serif; font-weight:700; font-size:clamp(28px,4vw,38px); margin:0 0 14px;">{{ activePrinciple.title }}</h4>
+        <p style="font-size:19px; color:#aaa; margin:0;">{{ activePrinciple.sub }}</p>
+      </div>
+      <div class="prin-btn" onClick="{{ next }}" style="flex:none; width:56px; border:1px solid #1f1f1f; border-radius:16px; display:flex; align-items:center; justify-content:center; font-size:22px; color:#888;">›</div>
+    </div>
+    <div style="display:flex; gap:10px; justify-content:center; margin-top:24px;">
+      <sc-for list="{{ principleDots }}" as="d" hint-placeholder-count="3">
+        <div class="dot" onClick="{{ d.go }}" style="height:8px; width:{{ d.w }}; border-radius:100px; background:{{ d.bg }}; cursor:pointer;"></div>
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- TRIGGERS + UTTERANCES -->
+  <div style="max-width:1120px; margin:0 auto; padding:80px 6vw 0; display:grid; grid-template-columns:1fr 1fr; gap:50px;">
+    <div>
+      <h3 style="font-size:20px; font-weight:600; margin:0 0 26px; color:#fff;">Trigger Conditions</h3>
+      <div style="font-size:15px; font-weight:600; color:#d8ff3e; margin-bottom:14px;">Trigger when:</div>
+      <div style="display:flex; flex-direction:column; gap:12px; margin-bottom:28px;">
+        <sc-for list="{{ triggerYes }}" as="t" hint-placeholder-count="3">
+          <div style="display:flex; gap:10px; font-size:15px; line-height:1.5; color:#c4c4c4;"><span style="color:#d8ff3e; flex:none;">✓</span><span>{{ t }}</span></div>
+        </sc-for>
+      </div>
+      <div style="font-size:15px; font-weight:600; color:#ff6b6b; margin-bottom:14px;">Do NOT trigger when:</div>
+      <div style="display:flex; flex-direction:column; gap:12px;">
+        <sc-for list="{{ triggerNo }}" as="t" hint-placeholder-count="3">
+          <div style="display:flex; gap:10px; font-size:15px; line-height:1.5; color:#c4c4c4;"><span style="color:#ff6b6b; flex:none;">✕</span><span>{{ t }}</span></div>
+        </sc-for>
+      </div>
+    </div>
+    <div>
+      <h3 style="font-size:20px; font-weight:600; margin:0 0 26px; color:#fff;">User Utterances</h3>
+      <div style="font-size:15px; font-weight:600; color:#eee; margin-bottom:14px;">What members say when they call:</div>
+      <div style="display:flex; flex-direction:column; gap:12px; margin-bottom:28px;">
+        <sc-for list="{{ uttMain }}" as="u" hint-placeholder-count="4">
+          <div style="background:#121212; border:1px solid #1f1f1f; border-radius:10px; padding:12px 16px; font-size:15px; color:#d0d0d0;">"{{ u }}"</div>
+        </sc-for>
+      </div>
+      <div style="font-size:15px; font-weight:600; color:#eee; margin-bottom:14px;">Edge cases:</div>
+      <div style="display:flex; flex-direction:column; gap:12px;">
+        <sc-for list="{{ uttEdge }}" as="u" hint-placeholder-count="3">
+          <div style="background:#121212; border:1px dashed #333; border-radius:10px; padding:12px 16px; font-size:15px; color:#a8a8a8;">"{{ u }}"</div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONVERSATION STRUCTURE (FLOW) -->
+  <div style="max-width:900px; margin:0 auto; padding:80px 6vw 0;">
+    <h3 style="font-size:20px; font-weight:600; margin:0 0 12px; color:#fff;">Conversation Structure</h3>
+    <p style="font-size:16px; color:#aaa; margin:0 0 40px;">The activity-reporting conversation follows a structured validation flow to ensure accurate and trustworthy self-reporting.</p>
+    <div style="display:flex; flex-direction:column; align-items:stretch; gap:0;">
+      <sc-for list="{{ flow }}" as="f" hint-placeholder-count="8">
+        <div>
+          <sc-if value="{{ f.single }}" hint-placeholder-val="{{ true }}">
+            <div style="background:{{ f.bg }}; border:1px solid {{ f.bd }}; border-radius:16px; padding:24px; text-align:center;">
+              <div style="width:38px; height:38px; margin:0 auto 12px; border-radius:10px; background:#0a0a0a80; display:flex; align-items:center; justify-content:center; color:{{ f.ic }}; font-size:18px;">{{ f.icon }}</div>
+              <div style="font-weight:700; font-size:17px; color:#fff;">{{ f.title }}</div>
+              <div style="font-size:14px; color:#9a9a9a; margin-top:6px;">{{ f.sub }}</div>
+            </div>
+          </sc-if>
+          <sc-if value="{{ f.branch }}" hint-placeholder-val="{{ true }}">
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+              <div style="background:#1a0f0f; border:1px solid #45201f; border-radius:16px; padding:22px; text-align:center;">
+                <div style="width:34px; height:34px; margin:0 auto 10px; border-radius:50%; background:#2a1212; display:flex; align-items:center; justify-content:center; color:#ff6b6b; font-size:16px;">✕</div>
+                <div style="font-weight:700; font-size:16px; color:#fff;">{{ f.negTitle }}</div>
+                <div style="font-size:13px; color:#c99; margin-top:6px;">{{ f.negSub }}</div>
+              </div>
+              <div style="background:#0f1a12; border:1px solid #1f4529; border-radius:16px; padding:22px; text-align:center;">
+                <div style="width:34px; height:34px; margin:0 auto 10px; border-radius:50%; background:#12220f; display:flex; align-items:center; justify-content:center; color:#8ee06a; font-size:16px;">✓</div>
+                <div style="font-weight:700; font-size:16px; color:#fff;">{{ f.posTitle }}</div>
+                <div style="font-size:13px; color:#9c9; margin-top:6px;">{{ f.posSub }}</div>
+              </div>
+            </div>
+          </sc-if>
+          <sc-if value="{{ f.arrow }}" hint-placeholder-val="{{ true }}">
+            <div style="text-align:center; color:#d8ff3e; font-size:20px; padding:12px 0;">↓</div>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+    <p style="font-style:italic; font-size:14px; color:#777; margin:24px 0 0;">Figure: Activity-reporting flow showing member authentication, rewards-activation check, activity validation, and outcome paths.</p>
+  </div>
+
+  <!-- CONTEXT CAPTURED -->
+  <div style="max-width:900px; margin:0 auto; padding:70px 6vw 0;">
+    <h3 style="font-size:20px; font-weight:600; margin:0 0 22px; color:#fff;">Context Captured</h3>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
+      <sc-for list="{{ context }}" as="c" hint-placeholder-count="6">
+        <div style="display:flex; gap:12px; align-items:center; background:#121212; border:1px solid #1f1f1f; border-radius:10px; padding:14px 18px; font-size:15px; color:#d0d0d0;">
+          <span style="color:#d8ff3e;">◆</span><span>{{ c }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- DESIGN DECISIONS -->
+  <div style="max-width:1120px; margin:0 auto; padding:90px 6vw 0;">
+    <div style="display:flex; align-items:center; gap:14px; margin-bottom:36px;">
+      <span style="width:34px; height:34px; border-radius:50%; background:#171c08; border:1px solid #2f3a14; display:flex; align-items:center; justify-content:center; color:#d8ff3e; font-size:16px;">💡</span>
+      <h2 style="font-family:'Archivo',sans-serif; font-weight:900; font-size:clamp(26px,4vw,38px); margin:0; letter-spacing:-.02em;">Design Decisions & Samples</h2>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+      <sc-for list="{{ decisions }}" as="d" hint-placeholder-count="6">
+        <div style="background:#121212; border:1px solid #1f1f1f; border-radius:18px; padding:28px;">
+          <div style="display:flex; gap:16px; margin-bottom:18px;">
+            <span style="width:32px; height:32px; flex:none; border-radius:9px; background:#171c08; color:#d8ff3e; font-weight:700; display:flex; align-items:center; justify-content:center; font-size:15px;">{{ d.n }}</span>
+            <p style="font-size:15px; line-height:1.6; color:#d0d0d0; margin:0;">{{ d.text }}</p>
+          </div>
+          <sc-if value="{{ d.sample }}" hint-placeholder-val="hidden">
+            <div style="background:#0d1206; border-left:3px solid #d8ff3e; border-radius:0 10px 10px 0; padding:16px 18px; font-size:14px; font-style:italic; line-height:1.55; color:#c7d99a;">{{ d.sample }}</div>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- SAMPLE PROMPTS -->
+  <div style="max-width:1120px; margin:0 auto; padding:90px 6vw 0;">
+    <div style="display:flex; align-items:center; gap:14px; margin-bottom:12px;">
+      <span style="width:34px; height:34px; border-radius:50%; background:#171c08; border:1px solid #2f3a14; display:flex; align-items:center; justify-content:center; color:#d8ff3e; font-size:16px;">⌘</span>
+      <h2 style="font-family:'Archivo',sans-serif; font-weight:900; font-size:clamp(26px,4vw,38px); margin:0; letter-spacing:-.02em;">Sample Prompts</h2>
+    </div>
+    <p style="font-size:17px; line-height:1.6; color:#aaa; margin:0 0 40px; max-width:680px;">Excerpts from the production prompt guiding how the assistant handles timing, duplicates, ambiguity, and eligibility edge cases. Client-specific references are redacted.</p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+      <sc-for list="{{ prompts }}" as="p" hint-placeholder-count="4">
+        <div style="background:#121212; border:1px solid #1f1f1f; border-radius:18px; overflow:hidden; display:flex; flex-direction:column;">
+          <div style="padding:26px 26px 18px;">
+            <div style="display:flex; gap:14px; align-items:center; margin-bottom:12px;">
+              <span style="width:28px; height:28px; flex:none; border-radius:8px; background:#171c08; color:#d8ff3e; font-weight:700; display:flex; align-items:center; justify-content:center; font-size:13px;">{{ p.n }}</span>
+              <h3 style="font-family:'Archivo',sans-serif; font-weight:700; font-size:18px; margin:0; color:#fff;">{{ p.title }}</h3>
+            </div>
+            <p style="font-size:14.5px; line-height:1.6; color:#a8a8a8; margin:0;">{{ p.body }}</p>
+          </div>
+          <div style="margin-top:auto; padding:0 20px 20px;">
+            <img src="{{ p.img }}" alt="{{ p.title }}" style="display:block; width:100%; border-radius:12px; border:1px solid #242424;">
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- OUTCOMES -->
+  <div style="max-width:1000px; margin:0 auto; padding:90px 6vw 0;">
+    <div style="display:flex; align-items:center; gap:14px; margin-bottom:36px;">
+      <span style="width:34px; height:34px; border-radius:50%; background:#171c08; border:1px solid #2f3a14; display:flex; align-items:center; justify-content:center; color:#d8ff3e; font-size:16px;">↗</span>
+      <h2 style="font-family:'Archivo',sans-serif; font-weight:900; font-size:clamp(28px,4vw,40px); margin:0; letter-spacing:-.02em;">Outcomes</h2>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:18px;">
+      <sc-for list="{{ outcomes }}" as="o" hint-placeholder-count="3">
+        <div style="background:#121212; border:1px solid #1f1f1f; border-left:4px solid #d8ff3e; border-radius:0 16px 16px 0; padding:28px 32px;">
+          <div style="display:flex; gap:18px; align-items:flex-start;">
+            <span style="width:34px; height:34px; flex:none; border-radius:10px; background:#d8ff3e; color:#0a0a0a; font-weight:700; display:flex; align-items:center; justify-content:center; font-size:15px;">{{ o.n }}</span>
+            <div>
+              <p style="font-size:17px; line-height:1.5; font-weight:600; color:#fff; margin:0 0 12px;">{{ o.text }}</p>
+              <div style="display:flex; gap:10px; align-items:flex-start; font-size:15px; color:#a8a8a8; line-height:1.5;"><span style="color:#d8ff3e;">→</span><span>{{ o.impact }}</span></div>
+            </div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- NEXT -->
+  <div style="border-top:1px solid #1d1d1d; max-width:1120px; margin:70px auto 0; padding:60px 6vw 100px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:24px;">
+    <a class="lk" href="Home.dc.html#work" style="font-size:15px; color:#d8ff3e; font-weight:600;">← View all projects</a>
+    <a class="cta-mail" href="LLM Powered Conversation.dc.html" style="font-family:'Archivo',sans-serif; font-weight:900; font-size:clamp(20px,3vw,30px); color:#fff; letter-spacing:-.02em; transition:color .2s;">Next: LLM Powered Conversation →</a>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { principle: 0 };
+
+  renderVals() {
+    const tags = ['Generative AI', 'Prompt Design', 'Voicebot', 'Healthcare Insurance'];
+
+    const roles = [
+      { icon: '💬', name: 'Conversation Design' },
+      { icon: '📝', name: 'Prompt Design' },
+      { icon: '🛡', name: 'Guardrails' },
+      { icon: '🗂', name: 'System Design' },
+      { icon: '🧪', name: 'Conversation Testing' },
+      { icon: '👥', name: 'Stakeholder Management' },
+    ];
+
+    const personas = [
+      { name: 'John, 60', role: 'Retired Army Veteran', initial: 'J', color: '#4f9cf9', behaviours: [
+        'Describes activity in general terms rather than exact numbers',
+        'Calls to report once he feels he has met the requirement',
+        'Prefers direct, step-by-step guidance without too many follow-ups',
+        'Shows mild frustration when asked to repeat or re-confirm information',
+      ]},
+      { name: 'Linda, 50', role: 'School Teacher', initial: 'L', color: '#2dd4bf', behaviours: [
+        'Asks clarifying questions during the interaction ("Does that count?")',
+        'Mixes up criteria such as number of days vs duration',
+        'Repeats or rephrases questions to confirm understanding',
+        'Relies on the assistant to guide her through eligibility',
+      ]},
+      { name: 'James, 75', role: 'Retired Shop Owner', initial: 'J', color: '#f59e0b', behaviours: [
+        'Uses uncertain language ("I think so", "maybe")',
+        'Hesitates before confirming responses',
+        'Seeks reassurance before proceeding',
+        'May disengage if the interaction feels strict',
+      ]},
+    ];
+
+    const principles = [
+      { icon: '⚡', title: 'Reduce friction', sub: 'to make reporting feel quick and easy' },
+      { icon: '🤝', title: 'Build trust', sub: 'with warm, transparent, non-transactional language' },
+      { icon: '🌱', title: 'Encourage healthy behaviour', sub: 'with gentle nudges that reinforce continued participation' },
+    ];
+    const idx = this.state.principle;
+    const activePrinciple = principles[idx];
+    const next = () => this.setState(s => ({ principle: (s.principle + 1) % principles.length }));
+    const prev = () => this.setState(s => ({ principle: (s.principle - 1 + principles.length) % principles.length }));
+    const principleDots = principles.map((_, i) => ({
+      w: i === idx ? '22px' : '8px',
+      bg: i === idx ? '#d8ff3e' : '#3a3a3a',
+      go: () => this.setState({ principle: i }),
+    }));
+
+    const triggerYes = [
+      'User intent = reporting activity / rewards completion',
+      'Month = current active reporting window',
+      'User is eligible and has activated their rewards',
+    ];
+    const triggerNo = [
+      'Asking about rewards info / FAQ',
+      'Asking about past months ("last month I forgot")',
+      'Asking about rewards balance',
+    ];
+    const uttMain = [
+      'I want to report my walking activity',
+      'I did my 10 days exercise',
+      'Can I log my activity for rewards?',
+      'How do I report my steps?',
+    ];
+    const uttEdge = [
+      'I think I did enough days',
+      'Can you check if I qualify?',
+      'I forgot to report earlier',
+    ];
+
+    const flow = [
+      { single: true, icon: '📞', ic: '#d8ff3e', bg: '#131313', bd: '#262626', title: 'Member calls', sub: 'Conversation initiated by member' },
+      { arrow: true },
+      { single: true, icon: '🛡', ic: '#8fb2ff', bg: '#101322', bd: '#232a45', title: 'Bot authenticates member', sub: 'Checks member ID and eligibility' },
+      { arrow: true },
+      { single: true, icon: '💬', ic: '#c9a5ff', bg: '#15111f', bd: '#2c2340', title: 'Member says they need to report an activity', sub: 'Member expresses intent to report their activity completion' },
+      { arrow: true },
+      { single: true, icon: '◎', ic: '#d8ff3e', bg: '#131313', bd: '#262626', title: "Bot checks if member's rewards are activated", sub: '' },
+      { arrow: true },
+      { branch: true, negTitle: 'If NOT activated', negSub: 'Bot informs member that rewards need to be activated first to earn and use rewards', posTitle: 'If activated', posSub: 'Proceeds to activity verification' },
+      { arrow: true },
+      { single: true, icon: '📈', ic: '#8fb2ff', bg: '#101322', bd: '#232a45', title: 'Bot asks about activity completion', sub: 'Did you complete 10 days of activity for 30 mins a day?' },
+      { arrow: true },
+      { single: true, icon: '🛡', ic: '#c9a5ff', bg: '#15111f', bd: '#2c2340', title: 'Bot validates the activity completion', sub: 'Checks against eligibility logic' },
+      { arrow: true },
+      { branch: true, negTitle: 'If NOT valid', negSub: "Explains why it's invalid and asks the member to try again later with correct dates", posTitle: 'If valid', posSub: 'Logs the activity, confirms rewards, and congratulates the member' },
+    ];
+
+    const context = [
+      'Current month',
+      'Eligibility (benefit enabled)',
+      'Rewards activated',
+      'Whether already reported this month',
+      'Activity requirement: ≥ 10 days',
+      'Activity requirement: ≥ 30 mins per day',
+    ];
+
+    const decisions = [
+      { n: '1', text: 'Eligibility and reward activation are validated upfront to avoid unnecessary back-and-forth. This prevents users from spending time on tasks they cannot complete, enabling early redirection or escalation.', sample: '"{name}, I\'m not able to log the activity as your rewards are not activated. Rewards need to be activated to earn and spend. Once that\'s done, I can help you report the activity."' },
+      { n: '2', text: 'The system checks whether the program rules are met before logging the activity. This sets clear expectations early and avoids failed reporting attempts.', sample: '"{name}, I am unable to log your activity now as you need at least \'x\' days of activity in the month for at least \'x\' minutes a day. I\'ll be here to help you once you\'ve completed the \'x\' days."' },
+      { n: '3', text: 'The system verifies whether the user has already reported the activity for the month before initiating the flow. This reduces repetition and prevents duplicate reporting without relying on user memory.', sample: '"Thanks for checking in. It looks like you\'ve already reported the activity this month, so I can\'t log it again. Just a reminder, the challenge needs 10 or more days, reported in the same month. I\'ll be waiting for your call next month."' },
+      { n: '4', text: 'Ambiguous responses like "I think so" or "probably" are treated as valid confirmations to maintain trust with senior members and reduce friction in self-reporting.', sample: '"That\'s alright, {name}. I have logged it for you. Congratulations! You\'ve earned \'x\' dollars, and it will reflect in your account within 24 hours, which you can then redeem."' },
+      { n: '5', text: 'To make the interaction personalised, follow-up questions and exit responses adapt based on user inputs (eligible, ineligible, unsure, logged).', sample: '"Would you like to know how you can earn more rewards, or is there anything else I can help you with?"' },
+      { n: '6', text: 'The interaction uses simple, supportive language with gentle nudges to build confidence and reinforce continued engagement with the program.', sample: '"Staying active like this can really support your overall health."' },
+    ];
+
+    const prompts = [
+      { n: '1', title: 'Proactive date validation', img: 'uploads/1.png', body: 'Validates timing conditions before asking the user for a date. If the current date is before the 10th of the month, the bot explains that reporting isn\'t possible yet and points to self-service.' },
+      { n: '2', title: 'Already reported this month', img: 'uploads/2.png', body: 'Detects a duplicate attempt and lets the member know their activity is already logged — reportable only once a month — while giving a concrete next date to return.' },
+      { n: '3', title: 'Unclear / ambiguous on the date', img: 'uploads/3.png', body: 'Handles uncertainty gracefully: reassures the member it\'s completely okay, and offers to log later or via self-service whenever they can confirm.' },
+      { n: '4', title: 'Not eligible for the monthly challenge', img: 'uploads/4.png', body: 'Covers the non-enrolled / ineligible path, offering to escalate to an advocate and respecting the member\'s choice to decline the transfer.' },
+    ];
+
+    const outcomes = [
+      { n: '1', text: 'Ambiguous user utterances highlighted gaps in correct intent matching, leading to the introduction of a disambiguation layer before routing to the correct intent.', impact: 'Improves intent accuracy and reduces incorrect handling, user frustration, and unnecessary escalations.' },
+      { n: '2', text: 'The design surfaced a need for real-time validation of rewards activation and member eligibility.', impact: 'Enables accurate, upfront validation and prevents failed or misleading interactions.' },
+      { n: '3', text: 'Replaced traditional, rule-based interactions with a more flexible and intuitive conversational approach tailored to user behaviours.', impact: 'Creates a more intuitive and user-friendly experience, especially for senior members.' },
+    ];
+
+    return { tags, roles, personas, activePrinciple, principleDots, next, prev, triggerYes, triggerNo, uttMain, uttEdge, flow, context, decisions, prompts, outcomes };
+  }
+}
+</script>
+</body>
+</html>

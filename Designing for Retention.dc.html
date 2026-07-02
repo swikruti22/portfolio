@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Archivo:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+* { box-sizing:border-box; }
+html, body { margin:0; background:#0a0a0a; }
+a { text-decoration:none; color:inherit; }
+.lk { transition:color .2s; }
+.lk:hover { color:#d8ff3e; }
+.cta-mail:hover { color:#eaffa0; }
+.persona-card { transition:transform .25s, border-color .25s; }
+.persona-card:hover { transform:translateY(-4px); }
+.res-link { transition:color .2s; }
+.res-link:hover { color:#d8ff3e; }
+</style>
+</helmet>
+
+<div style="font-family:'Space Grotesk',sans-serif; background:#0a0a0a; color:#fff; min-height:100vh;">
+
+  <!-- NAV -->
+  <div style="position:sticky; top:0; z-index:50; display:flex; justify-content:space-between; align-items:center; padding:22px 6vw; border-bottom:1px solid #1d1d1d; background:rgba(10,10,10,.85); backdrop-filter:blur(12px);">
+    <a href="Home.dc.html" style="font-weight:700; font-size:19px; letter-spacing:-.01em;">SN<span style="color:#d8ff3e;">.</span></a>
+    <div style="display:flex; gap:38px; font-size:14px; color:#9a9a9a; font-weight:500;">
+      <a class="lk" href="Home.dc.html#work">Work</a>
+      <a class="lk" href="About.dc.html">About</a>
+      <a class="lk" href="Contact.dc.html">Contact</a>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <div style="padding:80px 6vw 50px; max-width:1120px; margin:0 auto;">
+    <a class="lk" href="Home.dc.html#work" style="font-size:14px; color:#888;">← Back to work</a>
+    <div style="display:flex; flex-wrap:wrap; gap:8px; margin:34px 0 26px;">
+      <sc-for list="{{ tags }}" as="t" hint-placeholder-count="4">
+        <span style="font-size:12px; color:#d8ff3e; font-weight:600; letter-spacing:.04em; border:1px solid #2f3a14; background:#171c08; padding:7px 14px; border-radius:100px;">{{ t }}</span>
+      </sc-for>
+    </div>
+    <h1 style="font-family:'Archivo',sans-serif; font-weight:900; font-size:clamp(40px,7vw,84px); line-height:.95; letter-spacing:-.03em; margin:0;">Designing for Retention</h1>
+    <p style="max-width:760px; font-size:clamp(18px,2.4vw,23px); line-height:1.5; color:#c4c4c4; margin:30px 0 0;">Designing engagement and retention for low-motivation users in a therapeutic chatbot.</p>
+  </div>
+
+  <!-- META -->
+  <div style="max-width:1120px; margin:0 auto; padding:0 6vw 60px;">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; background:#121212; border:1px solid #1f1f1f; border-radius:18px; padding:34px 40px;">
+      <div>
+        <div style="font-size:12px; color:#d8ff3e; text-transform:uppercase; letter-spacing:.1em; margin-bottom:10px;">Role</div>
+        <div style="font-size:18px; color:#fff; font-weight:500;">Lead Conversation Designer · Project Manager</div>
+      </div>
+      <div>
+        <div style="font-size:12px; color:#d8ff3e; text-transform:uppercase; letter-spacing:.1em; margin-bottom:10px;">Duration</div>
+        <div style="font-size:18px; color:#fff; font-weight:500;">4 months</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BACKGROUND -->
+  <div style="max-width:820px; margin:0 auto; padding:20px 6vw 30px;">
+    <div style="font-size:13px; color:#d8ff3e; font-weight:600; letter-spacing:.08em; text-transform:uppercase; margin-bottom:18px;">Background</div>
+    <p style="font-size:18px; line-height:1.75; color:#bdbdbd; margin:0 0 24px;">According to the National Institute of Mental Health (NIMH), approximately 2.7% of U.S. adolescents aged 13 to 18 experience eating disorders, with a higher prevalence among females (3.8%) compared to males (1.5%). We aimed to evaluate the efficacy of Wysa's eating disorder program (a 4-week program) on a digital platform in supporting individuals dealing with this issue.</p>
+    <p style="font-size:18px; line-height:1.75; color:#bdbdbd; margin:0 0 24px;">Wysa offers structured digital therapy programs delivered through conversational interactions. These programs combine daily check-ins, CBT techniques, and guided reflection over 4–6 weeks.</p>
+    <p style="font-size:18px; line-height:1.75; color:#bdbdbd; margin:0 0 20px;">This project supported the early design and testing of Wysa's digital eating disorder intervention program. Insights from a pilot cohort helped shape the program and contributed to a successful grant application, enabling a larger clinical trial with Washington University School of Medicine to evaluate the intervention at scale.</p>
+  </div>
+
+  <!-- TRIAL JOURNEY -->
+  <div style="max-width:900px; margin:0 auto; padding:40px 6vw 0;">
+    <h3 style="font-size:20px; font-weight:600; margin:0 0 30px; color:#fff;">Trial Participation Journey</h3>
+    <div style="display:flex; flex-direction:column; gap:0;">
+      <sc-for list="{{ journey }}" as="j" hint-placeholder-count="6">
+        <div>
+          <div style="display:flex; align-items:center; gap:18px; background:{{ j.bg }}; border:1px solid {{ j.bd }}; border-radius:16px; padding:22px 26px;">
+            <span style="width:44px; height:44px; flex:none; border-radius:12px; background:#0a0a0a80; display:flex; align-items:center; justify-content:center; color:{{ j.ic }}; font-size:20px;">{{ j.icon }}</span>
+            <div>
+              <div style="font-weight:700; font-size:17px; color:#fff;">{{ j.title }}</div>
+              <div style="font-size:14px; color:#9a9a9a; margin-top:4px;">{{ j.sub }}</div>
+            </div>
+          </div>
+          <sc-if value="{{ j.arrow }}" hint-placeholder-val="{{ true }}">
+            <div style="text-align:center; color:#d8ff3e; font-size:20px; padding:10px 0;">↓</div>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+    <p style="font-style:italic; font-size:14px; color:#777; margin:24px 0 0;">Figure: User journey from onboarding through daily check-ins and weekly progress reports.</p>
+  </div>
+
+  <!-- PERSONAS -->
+  <div style="max-width:1120px; margin:0 auto; padding:70px 6vw 0;">
+    <div style="display:flex; align-items:center; gap:14px; margin-bottom:8px;">
+      <span style="width:34px; height:34px; border-radius:50%; background:#171c08; border:1px solid #2f3a14; display:flex; align-items:center; justify-content:center; color:#d8ff3e; font-size:16px;">✷</span>
+      <h2 style="font-family:'Archivo',sans-serif; font-weight:900; font-size:clamp(28px,4vw,40px); margin:0; letter-spacing:-.02em;">User Personas</h2>
+    </div>
+    <p style="font-size:16px; color:#aaa; margin:14px 0 30px;">Representing the range of users the program supports through the trial.</p>
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px;">
+      <sc-for list="{{ personas }}" as="p" hint-placeholder-count="3">
+        <div class="persona-card" style="background:#121212; border:1px solid #1f1f1f; border-radius:18px; padding:28px; border-top:3px solid {{ p.color }};">
+          <div style="display:flex; align-items:center; gap:14px; margin-bottom:22px;">
+            <span style="width:46px; height:46px; border-radius:50%; background:{{ p.color }}; display:flex; align-items:center; justify-content:center; color:#0a0a0a; font-weight:700; font-size:17px;">{{ p.initial }}</span>
+            <div>
+              <div style="font-family:'Archivo',sans-serif; font-weight:700; font-size:19px;">{{ p.name }}</div>
+              <div style="font-size:13px; color:#999;">{{ p.role }}</div>
+            </div>
+          </div>
+          <div style="font-size:11px; color:#777; letter-spacing:.1em; text-transform:uppercase; margin-bottom:8px;">Background</div>
+          <p style="font-size:14px; line-height:1.5; color:#c4c4c4; margin:0 0 18px;">{{ p.background }}</p>
+          <div style="font-size:11px; color:#777; letter-spacing:.1em; text-transform:uppercase; margin-bottom:14px;">Pain Points</div>
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            <sc-for list="{{ p.pains }}" as="b" hint-placeholder-count="4">
+              <div style="display:flex; gap:10px; font-size:14px; line-height:1.45; color:#c4c4c4;">
+                <span style="color:{{ p.color }}; flex:none; margin-top:2px;">●</span><span>{{ b }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- PROBLEM -->
+  <div style="max-width:820px; margin:0 auto; padding:80px 6vw 0;">
+    <div style="display:flex; align-items:center; gap:14px; margin-bottom:18px;">
+      <span style="width:34px; height:34px; border-radius:50%; background:#1a0f0f; border:1px solid #45201f; display:flex; align-items:center; justify-content:center; color:#ff6b6b; font-size:18px;">!</span>
+      <h2 style="font-family:'Archivo',sans-serif; font-weight:700; font-size:28px; margin:0; letter-spacing:-.01em;">Problem</h2>
+    </div>
+    <p style="font-size:18px; line-height:1.75; color:#bdbdbd; margin:0 0 20px;">Evening check-ins were designed to help users reflect on their day and wind down before sleep. However, engagement was consistently lower compared to morning check-ins.</p>
+    <p style="font-size:18px; line-height:1.75; color:#bdbdbd; margin:0 0 34px;">Users often skipped the evening interaction due to low motivation, mental fatigue, or avoidance of reflection at the end of the day.</p>
+    <h3 style="font-size:20px; font-weight:600; margin:0 0 20px; color:#fff;">Evening Check-in Objectives</h3>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+      <sc-for list="{{ objectives }}" as="o" hint-placeholder-count="2">
+        <div style="background:{{ o.bg }}; border:1px solid {{ o.bd }}; border-left:3px solid {{ o.ac }}; border-radius:0 14px 14px 0; padding:22px 24px;">
+          <div style="font-weight:700; font-size:16px; color:#fff; margin-bottom:8px;">{{ o.title }}</div>
+          <p style="font-size:14.5px; line-height:1.55; color:{{ o.ac }}; margin:0;">{{ o.sub }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- GOAL -->
+  <div style="max-width:820px; margin:0 auto; padding:70px 6vw 0;">
+    <div style="display:flex; align-items:center; gap:14px; margin-bottom:18px;">
+      <span style="width:34px; height:34px; border-radius:50%; background:#171c08; border:1px solid #2f3a14; display:flex; align-items:center; justify-content:center; color:#d8ff3e; font-size:18px;">◎</span>
+      <h2 style="font-family:'Archivo',sans-serif; font-weight:700; font-size:28px; margin:0; letter-spacing:-.01em;">Goal</h2>
+    </div>
+    <p style="font-size:18px; line-height:1.75; color:#bdbdbd; margin:0;">Increase engagement with evening check-ins while keeping the interaction lightweight and supportive.</p>
+  </div>
+
+  <!-- MY ROLE -->
+  <div style="max-width:1120px; margin:0 auto; padding:80px 6vw;">
+    <div style="display:flex; align-items:center; gap:14px; margin-bottom:12px;">
+      <span style="width:34px; height:34px; border-radius:50%; background:#171c08; border:1px solid #2f3a14; display:flex; align-items:center; justify-content:center; color:#d8ff3e; font-size:16px;">◍</span>
+      <h2 style="font-family:'Archivo',sans-serif; font-weight:900; font-size:clamp(28px,4vw,40px); margin:0; letter-spacing:-.02em;">My Role</h2>
+    </div>
+    <p style="font-size:17px; line-height:1.6; color:#aaa; margin:0 0 40px; max-width:640px;">This project required a combination of technical understanding, strategic thinking, and hands-on design. Here's what I contributed:</p>
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:18px;">
+      <sc-for list="{{ roles }}" as="r" hint-placeholder-count="6">
+        <div style="background:#121212; border:1px solid #1f1f1f; border-radius:16px; padding:26px 24px; display:flex; align-items:center; gap:16px;">
+          <span style="width:44px; height:44px; flex:none; border-radius:12px; background:#171c08; display:flex; align-items:center; justify-content:center; color:#d8ff3e; font-size:20px;">{{ r.icon }}</span>
+          <span style="font-size:16px; font-weight:600; color:#eee; line-height:1.25;">{{ r.name }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- BEHAVIORAL INSIGHTS -->
+  <div style="max-width:1120px; margin:0 auto; padding:20px 6vw 0;">
+    <div style="display:flex; align-items:center; gap:14px; margin-bottom:12px;">
+      <span style="width:34px; height:34px; border-radius:50%; background:#171c08; border:1px solid #2f3a14; display:flex; align-items:center; justify-content:center; color:#d8ff3e; font-size:16px;">🧠</span>
+      <h2 style="font-family:'Archivo',sans-serif; font-weight:900; font-size:clamp(28px,4vw,40px); margin:0; letter-spacing:-.02em;">Behavioral Insights</h2>
+    </div>
+    <p style="font-size:17px; line-height:1.6; color:#aaa; margin:14px 0 40px; max-width:680px;">Understanding why users disengaged in the evening shaped every design decision that followed.</p>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+      <sc-for list="{{ insights }}" as="i" hint-placeholder-count="4">
+        <div style="background:{{ i.bg }}; border:1px solid {{ i.bd }}; border-radius:18px; padding:28px; display:flex; flex-direction:column;">
+          <div style="display:flex; align-items:center; gap:14px; margin-bottom:18px;">
+            <span style="width:40px; height:40px; flex:none; border-radius:11px; background:#0a0a0a66; display:flex; align-items:center; justify-content:center; color:{{ i.ac }}; font-size:18px;">{{ i.icon }}</span>
+            <h3 style="font-family:'Archivo',sans-serif; font-weight:700; font-size:19px; margin:0; color:#fff; line-height:1.15;">{{ i.title }}</h3>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            <sc-for list="{{ i.body }}" as="para" hint-placeholder-count="2">
+              <p style="font-size:14.5px; line-height:1.6; color:#c0c0c0; margin:0;">{{ para }}</p>
+            </sc-for>
+          </div>
+          <div style="border-top:1px solid {{ i.bd }}; margin-top:20px; padding-top:16px;">
+            <div style="font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:{{ i.ac }}; margin-bottom:8px;">Design Implication</div>
+            <p style="font-size:14.5px; line-height:1.55; font-weight:600; color:#eee; margin:0;">{{ i.impl }}</p>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- CONVERSATION STRATEGY -->
+  <div style="max-width:900px; margin:0 auto; padding:90px 6vw 0;">
+    <div style="display:flex; align-items:center; gap:14px; margin-bottom:12px;">
+      <span style="width:34px; height:34px; border-radius:50%; background:#171c08; border:1px solid #2f3a14; display:flex; align-items:center; justify-content:center; color:#d8ff3e; font-size:16px;">💬</span>
+      <h2 style="font-family:'Archivo',sans-serif; font-weight:900; font-size:clamp(28px,4vw,40px); margin:0; letter-spacing:-.02em;">Conversation Strategy</h2>
+    </div>
+    <p style="font-size:17px; line-height:1.6; color:#aaa; margin:14px 0 36px;">How did we design the conversation to respond to these behavioral realities?</p>
+    <div style="display:flex; flex-direction:column; gap:20px;">
+      <sc-for list="{{ strategy }}" as="s" hint-placeholder-count="3">
+        <div style="background:#121212; border:1px solid #1f1f1f; border-radius:16px; padding:24px 28px;">
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:10px;">
+            <span style="color:#d8ff3e; font-size:12px;">●</span>
+            <h3 style="font-size:18px; font-weight:700; margin:0; color:#fff;">{{ s.title }}</h3>
+          </div>
+          <p style="font-size:15.5px; line-height:1.6; color:#bdbdbd; margin:0; padding-left:24px;">{{ s.body }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- THE SOLUTION -->
+  <div style="max-width:900px; margin:0 auto; padding:90px 6vw 0;">
+    <div style="display:flex; align-items:center; gap:14px; margin-bottom:18px;">
+      <span style="width:34px; height:34px; border-radius:50%; background:#171c08; border:1px solid #2f3a14; display:flex; align-items:center; justify-content:center; color:#d8ff3e; font-size:18px;">💡</span>
+      <h2 style="font-family:'Archivo',sans-serif; font-weight:900; font-size:clamp(28px,4vw,40px); margin:0; letter-spacing:-.02em;">The Solution</h2>
+    </div>
+    <p style="font-size:18px; line-height:1.75; color:#bdbdbd; margin:0 0 40px;">Based on user feedback and behavioural insights, we introduced flexibility by reducing the frequency of evening check-ins and allowing users to engage once or twice a week if daily conversations felt overwhelming — and we also offered options for winding down. This balanced data collection needs with user emotional capacity.</p>
+
+    <h3 style="font-size:20px; font-weight:600; margin:0 0 20px; color:#fff;">Evening Check-in Cases</h3>
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:50px;">
+      <sc-for list="{{ cases }}" as="c" hint-placeholder-count="3">
+        <div style="background:{{ c.bg }}; border:1px solid {{ c.bd }}; border-radius:16px; padding:22px;">
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+            <span style="color:{{ c.ac }}; font-size:16px;">{{ c.icon }}</span>
+            <span style="font-weight:700; font-size:16px; color:{{ c.ac }};">{{ c.label }}</span>
+          </div>
+          <p style="font-size:14px; line-height:1.5; color:#c4c4c4; margin:0;">{{ c.text }}</p>
+        </div>
+      </sc-for>
+    </div>
+
+    <h3 style="font-size:20px; font-weight:600; margin:0 0 26px; color:#fff;">Evening Check-in Conversation Flow</h3>
+    <div style="background:linear-gradient(160deg,#131313,#0d0d0d); border:1px solid #1f1f1f; border-radius:20px; padding:32px 28px;">
+      <div style="text-align:center; margin-bottom:6px;">
+        <span style="display:inline-block; background:#d8ff3e; color:#0a0a0a; font-weight:700; font-size:13px; padding:8px 18px; border-radius:100px;">Evening Check-in Starts</span>
+      </div>
+      <div style="text-align:center; color:#d8ff3e; font-size:18px; padding:8px 0;">↓</div>
+      <sc-for list="{{ chat }}" as="c" hint-placeholder-count="4">
+        <div>
+          <div style="font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:#c9a5ff; margin-bottom:12px;">{{ c.stage }}</div>
+          <div style="display:flex; flex-direction:column; gap:14px;">
+            <sc-for list="{{ c.turns }}" as="t" hint-placeholder-count="2">
+              <div style="display:flex; justify-content:{{ t.justify }};">
+                <div style="max-width:82%;">
+                  <div style="font-size:12px; color:{{ t.who_color }}; font-weight:600; margin-bottom:6px; text-align:{{ t.align }};">{{ t.who }}</div>
+                  <sc-if value="{{ t.bubble }}" hint-placeholder-val="{{ true }}">
+                    <div style="background:{{ t.bg }}; border:1px solid {{ t.bd }}; border-radius:14px; padding:14px 18px; font-size:15px; line-height:1.5; color:{{ t.text_color }};">{{ t.text }}</div>
+                  </sc-if>
+                  <sc-if value="{{ t.chips }}" hint-placeholder-val="{{ true }}">
+                    <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:{{ t.justify }};">
+                      <sc-for list="{{ t.options }}" as="opt" hint-placeholder-count="3">
+                        <span style="border:1px solid #2f3a14; background:#171c08; color:#d8ff3e; border-radius:100px; padding:9px 18px; font-size:14px; font-weight:500;">{{ opt }}</span>
+                      </sc-for>
+                    </div>
+                  </sc-if>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+          <sc-if value="{{ c.arrow }}" hint-placeholder-val="{{ true }}">
+            <div style="text-align:center; color:#d8ff3e; font-size:18px; padding:14px 0;">↓</div>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+    <p style="font-style:italic; font-size:14px; color:#777; margin:20px 0 0;">Figure: Conversation structure showing greeting, missed check-in detection, supportive response, and wind-down options.</p>
+  </div>
+
+  <!-- OUTCOME -->
+  <div style="max-width:900px; margin:0 auto; padding:90px 6vw 0;">
+    <div style="display:flex; align-items:center; gap:14px; margin-bottom:24px;">
+      <span style="width:34px; height:34px; border-radius:50%; background:#171c08; border:1px solid #2f3a14; display:flex; align-items:center; justify-content:center; color:#d8ff3e; font-size:16px;">↗</span>
+      <h2 style="font-family:'Archivo',sans-serif; font-weight:900; font-size:clamp(28px,4vw,40px); margin:0; letter-spacing:-.02em;">Outcome</h2>
+    </div>
+    <p style="font-size:18px; line-height:1.75; color:#bdbdbd; margin:0;">The redesigned evening check-in reduced interaction friction and aligned the conversation with users' evening mental state. The changes supported more flexible engagement and enabled the program to capture qualitative insights from evening reflections.</p>
+  </div>
+
+  <!-- NEXT -->
+  <div style="border-top:1px solid #1d1d1d; max-width:1120px; margin:80px auto 0; padding:60px 6vw 100px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:24px;">
+    <a class="lk" href="Home.dc.html#work" style="font-size:15px; color:#d8ff3e; font-weight:600;">← View all projects</a>
+    <a class="cta-mail" href="Case Study.dc.html" style="font-family:'Archivo',sans-serif; font-weight:900; font-size:clamp(20px,3vw,30px); color:#fff; letter-spacing:-.02em; transition:color .2s;">Next: AI Support for US Health Insurance →</a>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const tags = ['Deterministic', 'Chatbot', 'Mental Health', 'Research Study'];
+
+    const journey = [
+      { icon: '⤓', ic: '#d8ff3e', bg: '#131313', bd: '#262626', title: 'Download Wysa App', sub: 'Install and open the app', arrow: true },
+      { icon: '⊕', ic: '#8fb2ff', bg: '#101322', bd: '#232a45', title: 'Complete Onboarding', sub: 'Create profile & consent to trial', arrow: true },
+      { icon: '🔔', ic: '#c9a5ff', bg: '#15111f', bd: '#2c2340', title: 'Set Reminder Preferences', sub: 'Choose check-in times (morning & evening)', arrow: true },
+      { icon: '📅', ic: '#d8ff3e', bg: '#131313', bd: '#262626', title: 'Daily Check-ins (4 weeks)', sub: '☀ Morning check-in    ☾ Evening check-in', arrow: true },
+      { icon: '📈', ic: '#8fb2ff', bg: '#101322', bd: '#232a45', title: 'Weekly Progress Reports', sub: 'Review insights & track improvement', arrow: true },
+      { icon: '✓', ic: '#8ee06a', bg: '#0f1a12', bd: '#1f4529', title: 'Complete 4-Week Program', sub: 'Final assessment & feedback', arrow: false },
+    ];
+
+    const personas = [
+      { name: 'Ananya, 24', role: 'Bank Teller', initial: 'A', color: '#8b5cf6', background: 'Young working professional, lives independently. Has been consciously trying to "eat healthy" for a few years.', pains: [
+        'Constantly thinks about food and calories',
+        'Feels guilty after eating "unhealthy" food',
+        'Sets strict food rules and feels anxious when breaking them',
+        'Self-worth is closely tied to body image',
+      ]},
+      { name: 'Neha, 27', role: 'Research Scientist', initial: 'N', color: '#6366f1', background: 'Works long hours in a high-pressure job. Uses food as a coping mechanism during stress.', pains: [
+        'Alternates between strict dieting and binge eating',
+        'Feels a loss of control during binge episodes',
+        'Experiences shame and frustration after eating',
+        'Struggles to maintain consistency with eating habits',
+      ]},
+      { name: 'Rohan, 19', role: 'Medical Student', initial: 'R', color: '#a855f7', background: "College student. Doesn't openly talk about his relationship with food or body image.", pains: [
+        "Preoccupied with body image but doesn't label it as a problem",
+        'Skips meals or eats irregularly',
+        'Avoids discussing food-related struggles due to stigma',
+        'Finds it hard to recognise or articulate his patterns',
+      ]},
+    ];
+
+    const objectives = [
+      { title: '1. Review the day', sub: "What worked, what didn't work — to improve the program further.", ac: '#c9a5ff', bg: '#15111f', bd: '#2c2340' },
+      { title: '2. Help them wind down', sub: 'With mindfulness / sleep story / gratitude / thought-dump exercises.', ac: '#8fb2ff', bg: '#101322', bd: '#232a45' },
+    ];
+
+    const roles = [
+      { icon: '💬', name: 'Conversation Design' },
+      { icon: '🧠', name: 'Behavioral Analysis' },
+      { icon: '👥', name: 'User Research' },
+      { icon: '🧪', name: 'Conversation Testing' },
+      { icon: '🤝', name: 'Stakeholder Management' },
+      { icon: '✅', name: 'Project Management' },
+    ];
+
+    const insights = [
+      { icon: '🧠', ac: '#c9a5ff', bg: '#15111f', bd: '#2c2340', title: 'Cognitive fatigue after morning check-in',
+        body: [
+          'Morning check-ins in the program involve structured therapeutic exercises such as CBT reflections, identifying cognitive distortions, and challenging core beliefs. These activities require sustained emotional and cognitive engagement.',
+          'By evening, users often experience reduced mental bandwidth, making additional reflective tasks feel overwhelming.',
+        ],
+        impl: 'Evening interactions must be lighter and require less cognitive effort.' },
+      { icon: '🛡', ac: '#ff6b6b', bg: '#1a0f0f', bd: '#45201f', title: 'Reflection avoidance after difficult days',
+        body: [
+          'Evening check-ins usually ask users to evaluate how their day went and reflect on whether they completed the morning check-in or skipped their exercises. For users who struggled during the day or skipped their exercises, this reflection can trigger discomfort or self-criticism.',
+          'Avoiding the conversation becomes a way to avoid confronting that experience.',
+        ],
+        impl: 'Conversations must normalize avoidance, reduce pressure to disclose, and avoid framing missed actions as failures.' },
+      { icon: '🌙', ac: '#8fb2ff', bg: '#101322', bd: '#232a45', title: 'Low motivation during evening hours',
+        body: [
+          'Evenings are typically low-energy moments when users are less likely to engage with structured activities. Even short interactions may feel like an additional task at the end of the day.',
+        ],
+        impl: 'Interactions should be brief and offer optional engagement rather than requiring extended reflection.' },
+      { icon: '🛋', ac: '#f5d06a', bg: '#1a1608', bd: '#3a3115', title: 'Desire for passive winding-down activities',
+        body: [
+          "When users engage at night, they are often seeking relaxation rather than structured reflection. Features like guided meditation, thought dumps, or sleep stories align better with the user's mental state at this time.",
+        ],
+        impl: 'Offer optional calming activities that support winding down rather than rigid reflective prompts.' },
+    ];
+
+    const strategy = [
+      { title: 'Reduced cognitive load', body: 'Evening conversations were kept brief and structured around simple response options, allowing users to check in quickly without needing to elaborate.' },
+      { title: 'Normalized missed actions', body: 'If the morning check-in was skipped, the conversation acknowledged it without judgment and offered the option to adjust the check-in time.' },
+      { title: 'Flexible wind down', body: "To match the user's evening mindset, the conversation ended with optional calming activities such as guided meditation, thought dumps, or sleep stories." },
+    ];
+
+    const cases = [
+      { icon: '✓', ac: '#8ee06a', bg: '#0f1a12', bd: '#1f4529', label: 'Case 1', text: 'User checked in morning + technique successfully completed.' },
+      { icon: '✕', ac: '#f5d06a', bg: '#1a1608', bd: '#3a3115', label: 'Case 2', text: 'User checked in morning + technique not completed.' },
+      { icon: '🌙', ac: '#c9a5ff', bg: '#15111f', bd: '#2c2340', label: 'Case 3', text: 'User did not check in morning + directly checks in evening.' },
+    ];
+
+    const wysa = { who: 'Wysa', who_color: '#c9a5ff', justify: 'flex-start', align: 'left', bg: '#0e0e0e', bd: '#242424', text_color: '#e2e2e2' };
+    const user = { who: 'User', who_color: '#888', justify: 'flex-end', align: 'right', bg: '#171c08', bd: '#2f3a14', text_color: '#d8ff3e' };
+    const chat = [
+      { stage: 'Greeting', arrow: true, turns: [
+        { ...wysa, bubble: true, text: 'Good evening, {name}. How are you feeling today?' },
+        { ...user, bubble: true, text: 'Free text' },
+      ]},
+      { stage: 'Missed morning check-in detection', arrow: true, turns: [
+        { ...wysa, bubble: true, text: 'I noticed we missed the technique we practised this morning. That happens sometimes. What got in the way today?' },
+        { ...user, bubble: true, text: 'Free text' },
+      ]},
+      { stage: 'Supportive response', arrow: true, turns: [
+        { ...wysa, bubble: true, text: "That sounds difficult. We'll try a different approach tomorrow. I'm proud of you for trying today." },
+      ]},
+      { stage: 'Wind-down options', arrow: false, turns: [
+        { ...wysa, bubble: true, text: 'Would you like something to help you relax?' },
+        { ...wysa, chips: true, justify: 'flex-start', options: ['Mindfulness', 'Gratitude', 'Thought dump'] },
+      ]},
+    ];
+
+    return { tags, journey, personas, objectives, roles, insights, strategy, cases, chat };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<script src="./image-slot.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Archivo:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+* { box-sizing:border-box; }
+html, body { margin:0; background:#0a0a0a; }
+@keyframes marquee { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+a { text-decoration:none; color:inherit; }
+.lk { transition:color .2s, opacity .2s; }
+.lk:hover { color:#d8ff3e; }
+.btn-fill { transition:transform .2s, box-shadow .2s; }
+.btn-fill:hover { transform:translateY(-2px); box-shadow:0 10px 30px rgba(216,255,62,.25); }
+.work-row { transition:border-color .25s, background .25s; }
+.work-row:hover { border-color:#d8ff3e; background:#161616; }
+.cta-mail:hover { color:#eaffa0; }
+</style>
+</helmet>
+
+<div style="font-family:'Space Grotesk',sans-serif; background:#0a0a0a; color:#fff; min-height:100vh;">
+
+  <!-- NAV -->
+  <div style="position:sticky; top:0; z-index:50; display:flex; justify-content:space-between; align-items:center; padding:22px 6vw; border-bottom:1px solid #1d1d1d; background:rgba(10,10,10,.85); backdrop-filter:blur(12px);">
+    <a href="Home.dc.html" style="font-weight:700; font-size:19px; letter-spacing:-.01em;">SN<span style="color:#d8ff3e;">.</span></a>
+    <div style="display:flex; gap:38px; font-size:14px; color:#9a9a9a; font-weight:500;">
+      <a class="lk" href="#work">Work</a>
+      <a class="lk" href="About.dc.html">About</a>
+      <a class="lk" href="Contact.dc.html">Contact</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div style="padding:120px 6vw 80px; max-width:1400px; margin:0 auto;">
+    <div style="font-size:14px; letter-spacing:.14em; text-transform:uppercase; color:#d8ff3e; font-weight:600; margin-bottom:32px;">Conversation Designer · Available for work</div>
+    <h1 style="font-family:'Archivo',sans-serif; font-weight:900; font-size:clamp(44px,7.6vw,104px); line-height:.92; letter-spacing:-.03em; margin:0;">Designing conversational<br>systems that create<br><span style="color:#d8ff3e;">measurable value</span></h1>
+    <p style="max-width:700px; font-size:clamp(18px,2.4vw,23px); line-height:1.55; color:#c4c4c4; margin:40px 0 0;">Hey, I'm a conversation designer with 6 years of experience. I design AI-driven conversational systems that connect user needs with product goals — working closely with product, engineering, and AI teams to turn complex workflows into clear, intuitive experiences. I enjoy solving system-level design problems just as much as crafting the conversation itself.</p>
+    <div style="display:flex; gap:64px; margin-top:52px; flex-wrap:wrap;">
+      <sc-for list="{{ stats }}" as="st" hint-placeholder-count="3">
+        <div>
+          <div style="font-family:'Archivo',sans-serif; font-weight:900; font-size:clamp(40px,5vw,56px); letter-spacing:-.02em; line-height:1;">{{ st.n }}</div>
+          <div style="font-size:14px; color:#8c8c8c; margin-top:10px;">{{ st.label }}</div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="display:flex; gap:16px; margin-top:52px; flex-wrap:wrap;">
+      <a class="btn-fill" href="#work" style="background:#d8ff3e; color:#0a0a0a; font-weight:700; font-size:15px; padding:17px 32px; border-radius:100px;">View projects →</a>
+      <a class="lk" href="Contact.dc.html" style="border:1px solid #333; color:#fff; font-weight:600; font-size:15px; padding:17px 32px; border-radius:100px;">Get in touch</a>
+    </div>
+  </div>
+
+  <!-- MARQUEE -->
+  <div style="overflow:hidden; border-top:1px solid #1d1d1d; border-bottom:1px solid #1d1d1d; padding:20px 0;">
+    <div style="display:flex; gap:44px; width:max-content; animation:marquee 22s linear infinite; font-family:'Archivo',sans-serif; font-weight:900; font-size:30px; text-transform:uppercase; -webkit-text-stroke:1px #3a3a3a; color:transparent; white-space:nowrap;">
+      <sc-for list="{{ marquee }}" as="m" hint-placeholder-count="8">
+        <span>{{ m.t }}</span><span style="color:#d8ff3e; -webkit-text-stroke:0;">✦</span>
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- WORK -->
+  <div id="work" style="padding:100px 6vw; max-width:1400px; margin:0 auto;">
+    <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:46px;">
+      <h2 style="font-family:'Archivo',sans-serif; font-weight:900; font-size:clamp(34px,5vw,52px); margin:0; letter-spacing:-.02em;">Selected Work</h2>
+      <span style="color:#777; font-size:14px;">2022 — 2025</span>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:22px;">
+      <sc-for list="{{ projects }}" as="p" hint-placeholder-count="3">
+        <a href="{{ p.href }}" class="work-row" style="display:grid; grid-template-columns:1.1fr 1fr; gap:36px; align-items:center; background:#121212; border:1px solid #1f1f1f; border-radius:20px; padding:30px;">
+          <div>
+            <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:18px;">
+              <sc-for list="{{ p.tags }}" as="t" hint-placeholder-count="3">
+                <span style="font-size:12px; color:#d8ff3e; font-weight:600; letter-spacing:.04em; border:1px solid #2f3a14; background:#171c08; padding:6px 12px; border-radius:100px;">{{ t }}</span>
+              </sc-for>
+            </div>
+            <h3 style="font-family:'Archivo',sans-serif; font-weight:700; font-size:clamp(24px,3vw,32px); margin:0 0 14px; line-height:1.05;">{{ p.title }}</h3>
+            <p style="color:#aaa; font-size:15px; line-height:1.55; margin:0 0 20px;">{{ p.desc }}</p>
+            <span style="font-size:14px; color:#fff; font-weight:600; border-bottom:2px solid #d8ff3e; padding-bottom:3px;">Read case study →</span>
+          </div>
+          <image-slot id="home-{{ p.id }}" style="width:100%; height:250px; display:block;" shape="rounded" radius="14" placeholder="Project image"></image-slot>
+        </a>
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div style="padding:90px 6vw 100px; border-top:1px solid #1d1d1d; max-width:1400px; margin:0 auto; display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:30px;">
+    <div>
+      <div style="font-size:14px; color:#888; margin-bottom:16px;">Let's build something</div>
+      <a class="cta-mail" href="mailto:swikrutinayak22@gmail.com" style="font-family:'Archivo',sans-serif; font-weight:900; font-size:clamp(32px,6vw,60px); color:#d8ff3e; letter-spacing:-.02em; transition:color .2s;">swikrutinayak22@gmail.com</a>
+    </div>
+    <div style="display:flex; gap:26px; color:#999; font-size:14px; font-weight:500;">
+      <a class="lk" href="https://www.linkedin.com/in/swikruti-nayak/" target="_blank">LinkedIn</a><a class="lk" href="uploads/Swikruti Nayak Resume May 2026.docx">Resume ↗</a>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const projects = [
+      { id: 'a', href: 'Case Study.dc.html', tags: ['Generative AI','Prompt Design','Voicebot','Healthcare Insurance'], title: 'AI Support for US Health Insurance', desc: 'Designing a smart AI conversational agent that reduces friction in activity reporting while keeping members confident and informed.' },
+      { id: 'b', href: 'LLM Powered Conversation.dc.html', tags: ['Generative AI','Prompt Design','Chatbot','Mental Health'], title: 'LLM Powered Conversation', desc: 'Reimagining a rule-based chatbot using LLMs to support more natural and intuitive conversations.' },
+      { id: 'c', href: 'Designing for Retention.dc.html', tags: ['Deterministic','Chatbot','Mental Health','Research Study'], title: 'Designing for Retention', desc: 'Designing engagement and retention for low-motivation users in a therapeutic chatbot.' },
+    ];
+    const stats = [
+      { n: '50M+', label: 'Users reached' },
+      { n: '25+', label: 'Projects delivered' },
+      { n: '2', label: 'Industries served' },
+    ];
+    const words = ['Conversation Design','Generative AI','Prompt Design','Voice & Chat'];
+    const marquee = [...words, ...words].map(t => ({ t }));
+    return { projects, stats, marquee };
+  }
+}
+</script>
+</body>
+</html>

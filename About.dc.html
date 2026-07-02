@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<script src="./image-slot.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Archivo:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+* { box-sizing:border-box; }
+html, body { margin:0; background:#0a0a0a; }
+a { text-decoration:none; color:inherit; }
+.lk { transition:color .2s; }
+.lk:hover { color:#d8ff3e; }
+.cta-mail:hover { color:#eaffa0; }
+</style>
+</helmet>
+
+<div style="font-family:'Space Grotesk',sans-serif; background:#0a0a0a; color:#fff; min-height:100vh;">
+
+  <!-- NAV -->
+  <div style="position:sticky; top:0; z-index:50; display:flex; justify-content:space-between; align-items:center; padding:22px 6vw; border-bottom:1px solid #1d1d1d; background:rgba(10,10,10,.85); backdrop-filter:blur(12px);">
+    <a href="Home.dc.html" style="font-weight:700; font-size:19px; letter-spacing:-.01em;">SN<span style="color:#d8ff3e;">.</span></a>
+    <div style="display:flex; gap:38px; font-size:14px; color:#9a9a9a; font-weight:500;">
+      <a class="lk" href="Home.dc.html#work">Work</a>
+      <a class="lk" href="About.dc.html">About</a>
+      <a class="lk" href="Contact.dc.html">Contact</a>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <div style="padding:110px 6vw 70px; max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1.4fr 1fr; gap:60px; align-items:center;">
+    <div>
+      <div style="font-size:14px; letter-spacing:.14em; text-transform:uppercase; color:#d8ff3e; font-weight:600; margin-bottom:28px;">About</div>
+      <h1 style="font-family:'Archivo',sans-serif; font-weight:900; font-size:clamp(40px,6.5vw,76px); line-height:.96; letter-spacing:-.03em; margin:0;">Design that respects people's time.</h1>
+      <p style="max-width:560px; font-size:clamp(17px,2.2vw,20px); line-height:1.6; color:#c4c4c4; margin:32px 0 0;">I'm Swikruti — a product designer who likes the hard, unglamorous middle of a project: untangling flows, refining the edge cases, and shipping something that works for everyone. I've spent the last 7 years across fintech, healthcare, and conversational AI, partnering closely with engineers and PMs to turn ambiguity into impact.</p>
+    </div>
+    <image-slot id="about-portrait" style="width:100%; height:420px; display:block;" shape="rounded" radius="20" placeholder="Drop your portrait"></image-slot>
+  </div>
+
+  <!-- CAPABILITIES + TOOLS -->
+  <div style="max-width:1200px; margin:0 auto; padding:50px 6vw 30px; display:grid; grid-template-columns:1fr 1fr; gap:60px;">
+    <div>
+      <h2 style="font-family:'Archivo',sans-serif; font-weight:700; font-size:26px; margin:0 0 24px; letter-spacing:-.01em;">What I do</h2>
+      <div style="display:flex; flex-direction:column; gap:0;">
+        <sc-for list="{{ skills }}" as="s" hint-placeholder-count="5">
+          <div style="display:flex; justify-content:space-between; padding:18px 0; border-top:1px solid #1d1d1d; font-size:16px;">
+            <span style="color:#eee; font-weight:500;">{{ s.name }}</span>
+            <span style="color:#777;">{{ s.note }}</span>
+          </div>
+        </sc-for>
+        <div style="border-top:1px solid #1d1d1d;"></div>
+      </div>
+    </div>
+    <div>
+      <h2 style="font-family:'Archivo',sans-serif; font-weight:700; font-size:26px; margin:0 0 24px; letter-spacing:-.01em;">Tools</h2>
+      <div style="display:flex; flex-wrap:wrap; gap:12px;">
+        <sc-for list="{{ tools }}" as="t" hint-placeholder-count="6">
+          <span style="border:1px solid #2a2a2a; color:#cfcfcf; font-size:14px; font-weight:500; padding:11px 20px; border-radius:100px;">{{ t.name }}</span>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div style="margin-top:70px; border-top:1px solid #1d1d1d; max-width:1200px; margin-inline:auto; padding:80px 6vw 100px;">
+    <div style="font-size:14px; color:#888; margin-bottom:16px;">Say hello</div>
+    <a class="cta-mail" href="mailto:swikrutinayak22@gmail.com" style="font-family:'Archivo',sans-serif; font-weight:900; font-size:clamp(32px,6vw,60px); color:#d8ff3e; letter-spacing:-.02em; transition:color .2s;">swikrutinayak22@gmail.com</a>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const skills = [
+      { name: 'Conversation Design', note: 'AI & chat' },
+      { name: 'Product & UX Design', note: 'End-to-end' },
+      { name: 'Research & Discovery', note: 'Mixed methods' },
+      { name: 'Prototyping', note: 'Lo-fi → hi-fi' },
+      { name: 'Design Systems', note: 'Build & scale' },
+      { name: 'Project Management', note: 'Leading teams & scaling process' },
+      { name: 'Content Design', note: 'Voice & copy' },
+      { name: 'NLP / NLU', note: 'Intent & language modeling' },
+      { name: 'Data Analysis', note: 'Metrics & insights' },
+    ];
+    const tools = ['Figma','Framer','Claude Design','Miro','Notion','LEX','Voiceflow','Python','JSON','XML'].map(name => ({ name }));
+    return { skills, tools };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Archivo:wght@400;500;700;900&amp;display=swap" rel="stylesheet">
+<style>
+* { box-sizing:border-box; }
+html, body { margin:0; background:#0a0a0a; }
+a { text-decoration:none; color:inherit; }
+.lk { transition:color .2s; }
+.lk:hover { color:#d8ff3e; }
+.row-link { transition:border-color .25s, padding-left .25s; }
+.row-link:hover { border-color:#d8ff3e; padding-left:12px; }
+.row-link:hover .arr { color:#d8ff3e; transform:translateX(4px); }
+</style>
+</helmet>
+
+<div style="font-family:'Space Grotesk',sans-serif; background:#0a0a0a; color:#fff; min-height:100vh; display:flex; flex-direction:column;">
+
+  <!-- NAV -->
+  <div style="display:flex; justify-content:space-between; align-items:center; padding:22px 6vw; border-bottom:1px solid #1d1d1d;">
+    <a href="Home.dc.html" style="font-weight:700; font-size:19px; letter-spacing:-.01em;">SN<span style="color:#d8ff3e;">.</span></a>
+    <div style="display:flex; gap:38px; font-size:14px; color:#9a9a9a; font-weight:500;">
+      <a class="lk" href="Home.dc.html#work">Work</a>
+      <a class="lk" href="About.dc.html">About</a>
+      <a class="lk" href="Contact.dc.html">Contact</a>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div style="flex:1; max-width:1100px; width:100%; margin:0 auto; padding:110px 6vw 90px;">
+    <div style="font-size:14px; letter-spacing:.14em; text-transform:uppercase; color:#d8ff3e; font-weight:600; margin-bottom:30px;">Contact · Available for work</div>
+    <h1 style="font-family:'Archivo',sans-serif; font-weight:900; font-size:clamp(48px,10vw,128px); line-height:.9; letter-spacing:-.03em; margin:0; text-transform:uppercase;">Let's talk</h1>
+    <p style="max-width:560px; font-size:clamp(18px,2.4vw,22px); line-height:1.55; color:#c4c4c4; margin:34px 0 70px;">Have a product that needs design, or a role you're hiring for? Drop me a line — I reply to everything.</p>
+
+    <div style="display:flex; flex-direction:column;">
+      <sc-for list="{{ links }}" as="l" hint-placeholder-count="4">
+        <a href="{{ l.href }}" class="row-link" style="display:flex; justify-content:space-between; align-items:center; padding:30px 0; border-top:1px solid #1d1d1d;">
+          <div style="display:flex; align-items:baseline; gap:20px; flex-wrap:wrap;">
+            <span style="font-size:13px; color:#777; text-transform:uppercase; letter-spacing:.08em; width:90px;">{{ l.k }}</span>
+            <span style="font-family:'Archivo',sans-serif; font-weight:700; font-size:clamp(22px,3.4vw,34px); letter-spacing:-.01em;">{{ l.v }}</span>
+          </div>
+          <span class="arr" style="font-size:26px; color:#555; transition:color .25s, transform .25s;">↗</span>
+        </a>
+      </sc-for>
+      <div style="border-top:1px solid #1d1d1d;"></div>
+    </div>
+  </div>
+
+  <div style="padding:30px 6vw; border-top:1px solid #1d1d1d; color:#666; font-size:13px;">© 2025 Swikruti Nayak · Designed &amp; built with care</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const links = [
+      { k: 'Email', v: 'swikrutinayak22@gmail.com', href: 'mailto:swikrutinayak22@gmail.com' },
+      { k: 'LinkedIn', v: '/in/swikruti-nayak', href: 'https://www.linkedin.com/in/swikruti-nayak/' },
+      { k: 'Resume', v: 'Download PDF', href: 'uploads/Swikruti Nayak Resume May 2026.docx' },
+    ];
+    return { links };
+  }
+}
+</script>
+</body>
+</html>
